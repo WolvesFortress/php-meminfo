@@ -1,0 +1,10 @@
+// $Id$
+// vim:ft=javascript
+
+ARG_ENABLE("meminfo", "whether to enable Memory Information support", "no");
+
+if (PHP_MEMINFO != "no") {
+	EXTENSION("meminfo", "meminfo.c", true);
+    AC_DEFINE('HAVE_MEMINFO', 1)
+}
+
