@@ -4,7 +4,7 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: windows-latest
     strategy:
       matrix:
         php-versions: ['7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
@@ -38,10 +38,9 @@ jobs:
           REPORT_EXIT_STATUS=1 NO_INTERACTION=1 make test
 
       - uses: actions/upload-artifact@v2
-        if: failure()
         with:
           name: ext-tests-output
-          path: 'extension/tests/*.out'
+          path: 'extension/*.dll'
 
       - name: Test the analyzers
         run: |
